@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Hunting Phone</title>
+</head>
+
+<body class="container mx-auto">
+    <header></header>
+    <main>
+        <section class="sticky top-0 z-50">
+            <label class="input input-bordered flex items-center gap-2 w-">
+                <input id="search-field" type="text" class="grow" placeholder="Search phones..." />
+                <button onclick="handleSearchBtn()" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
+                        <path fill-rule="evenodd"
+                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                            clip-rule="evenodd" />
+                    </svg>Search</button>
+            </label>
+        </section>
+        <section class="mt-5">
+            <!-- Loader -->
+            <div id="loading-spinner" class="text-center my-40 hidden">
+                <button class="btn">
+                    <span class="loading loading-spinner text-error"></span>
+                    loading<span class="loading loading-dots loading-xs"></span>
+                </button>
+            </div>
+
+
+            <div id="phone-container" class=" grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            </div>
+
+            <!-- show all phones -->
+            <div id="show-all-container" class="hidden text-center my-6">
+                <button onclick="handleShowAll()" class="btn btn-accent">Show All</button>
+            </div>
+        </section>
+
+        <!-- show details modal -->
+        <div>
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="">open modal</button> -->
+            <dialog id="show_detail_modal" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <h3 id="phone-name" class="font-bold text-3xl text-center"></h3>
+                    <div id="show-details-container">
+
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </main>
+    <footer></footer>
+
+    <p>new</p>
+    <!-- script  -->
+    <script src="Scripts/phoneApi.js"></script>
+</body>
+
+</html>
